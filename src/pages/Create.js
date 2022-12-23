@@ -36,8 +36,8 @@ export default function Create() {
     if (title && details) {
       fetch('http://localhost:8000/notes', {
         method: 'POST',
-        headers: {"Content-type": "application/json"},
-        body: JSON.stringify({title, details, category})
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ title, details, category })
       }).then(() => history.push('/'));
     }
   }
@@ -57,7 +57,7 @@ export default function Create() {
       <form noValidate autoComplete='off' onSubmit={handleSubmit}>
         <TextField
           onChange={(e) => setTitle(e.target.value)}
-          className={classes.field}
+          sx={{mb:3, mt:3}}
           id="note-title"
           label="Note title"
           variant="outlined"
@@ -67,7 +67,7 @@ export default function Create() {
         />
         <TextField
           onChange={(e) => setDetails(e.target.value)}
-          className={classes.field}
+          sx={{mb:3}}
           id="note-details"
           label="Note details"
           variant="outlined"
@@ -86,17 +86,17 @@ export default function Create() {
             <FormControlLabel value="reminders" control={<Radio />} label="Reminders" />
             <FormControlLabel value="work" control={<Radio />} label="Work" />
           </RadioGroup>
+          <Button
+            className={classes.btn}
+            type='submit'
+            color='primary'
+            variant='contained'
+            disableElevation
+            endIcon={<KeyboardArrowRightIcon />}
+          >
+            Submit
+          </Button>
         </FormControl>
-        <Button
-          className={classes.btn}
-          type='submit'
-          color='primary'
-          variant='contained'
-          disableElevation
-          endIcon={<KeyboardArrowRightIcon />}
-        >
-          Submit
-        </Button>
       </form>
 
     </Container>
