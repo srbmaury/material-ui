@@ -2,7 +2,7 @@ import { makeStyles } from '@mui/styles'
 import React from 'react'
 import { Drawer, Typography, List, ListItem, ListItemIcon, ListItemText, ListItemButton, AppBar, Toolbar, Avatar } from '@mui/material';
 import { AddCircleOutlined, Calculate, SubjectOutlined } from '@mui/icons-material';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 
 const drawerWidth = 240
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => {
 })
 const Layout = ({ children }) => {
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
 
     const menuItems = [
@@ -100,7 +100,7 @@ const Layout = ({ children }) => {
                         {menuItems.map(item => (
                             <ListItem
                                 key={item.text}
-                                onClick={() => history.push(item.path)}
+                                onClick={() => navigate(item.path)}
                                 className={location.pathname == item.path ? classes.active : null}
                             >
                                 <ListItemButton>

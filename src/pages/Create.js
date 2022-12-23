@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { makeStyles } from '@mui/styles';
 import { Container, Typography, TextField, Button, FormControlLabel, FormControl, FormLabel, RadioGroup, Radio } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
   field: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 export default function Create() {
   const classes = useStyles();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [titleError, setTitleError] = useState(false);
@@ -38,7 +38,7 @@ export default function Create() {
         method: 'POST',
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ title, details, category })
-      }).then(() => history.push('/'));
+      }).then(() => navigate('/'));
     }
   }
 
