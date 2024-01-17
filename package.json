@@ -1,7 +1,8 @@
 {
   "name": "material-ui-tut",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://srbmaury.github.io/material-ui",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
